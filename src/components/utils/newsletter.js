@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form } from 'react-bootstrap';
-import { addNewsletter, crearNewsletter } from '../../store/actions';
+import { addNewsletter, clearNewsletter } from '../../store/actions';
 import { showToasts } from './tools';
 
 const Newsletter = () => {
@@ -21,7 +21,8 @@ const Newsletter = () => {
         showToasts('SUCCESS', 'Thank you for subscribing!!!');
         textInput.current.value = '';
         // dispatch(crearNewsletter());
-      } else {
+      }
+      if (userData.newsletter === 'failed') {
         showToasts('ERROR', 'You are already on the DB ');
         textInput.current.value = '';
         // dispatch(crearNewsletter());
@@ -31,7 +32,7 @@ const Newsletter = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(crearNewsletter());
+      dispatch(clearNewsletter());
     };
   }, [dispatch]);
 

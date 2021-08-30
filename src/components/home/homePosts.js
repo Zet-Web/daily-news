@@ -10,7 +10,7 @@ const HomePosts = () => {
   const homePosts = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-
+  console.log(homePosts);
   useEffect(() => {
     dispatch(getPosts({}, 1, 'desc', 6));
   }, [dispatch]);

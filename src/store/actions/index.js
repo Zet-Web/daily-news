@@ -1,10 +1,26 @@
 import * as api from '../../api';
-import { ADD_NEWSLETTER, CLEAR_NEWSLETTER, GET_POSTS } from '../types';
+import {
+  ADD_NEWSLETTER,
+  CLEAR_NEWSLETTER,
+  CLEAR_POST_BY_ID,
+  GET_POST_BY_ID,
+  GET_POSTS,
+} from '../types';
 
 /*POST*/
 export const getPosts = (homePosts, page, order, limit) => ({
   type: GET_POSTS,
   payload: api.getPosts(homePosts, page, order, limit),
+});
+
+export const getPostById = (id) => ({
+  type: GET_POST_BY_ID,
+  payload: api.getPostById(id),
+});
+
+export const clearPostById = () => ({
+  type: CLEAR_POST_BY_ID,
+  payload: {},
 });
 
 /*USER*/
@@ -13,10 +29,7 @@ export const addNewsletter = (data) => ({
   payload: api.addNewsletter(data),
 });
 
-export const crearNewsletter = () => ({
+export const clearNewsletter = () => ({
   type: CLEAR_NEWSLETTER,
-  payload: {
-    newsletter: false,
-    email: [],
-  },
+  payload: {},
 });

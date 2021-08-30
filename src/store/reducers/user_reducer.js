@@ -1,4 +1,5 @@
 import { ADD_NEWSLETTER, CLEAR_NEWSLETTER } from '../types';
+import { act } from '@testing-library/react';
 
 export default function usersReducer(state = {}, action) {
   switch (action.type) {
@@ -8,7 +9,7 @@ export default function usersReducer(state = {}, action) {
         ...action.payload,
       };
     case CLEAR_NEWSLETTER:
-      return { ...state, ...action.payload };
+      return { ...state, newsletter: action.payload, email: action.payload };
     default:
       return state;
   }
