@@ -1,5 +1,5 @@
 import * as api from '../../api';
-import { ADD_NEWSLETTER, GET_POSTS } from '../types';
+import { ADD_NEWSLETTER, CLEAR_NEWSLETTER, GET_POSTS } from '../types';
 
 /*POST*/
 export const getPosts = (homePosts, page, order, limit) => ({
@@ -13,4 +13,10 @@ export const addNewsletter = (data) => ({
   payload: api.addNewsletter(data),
 });
 
-export const crear = () => {};
+export const crearNewsletter = () => ({
+  type: CLEAR_NEWSLETTER,
+  payload: {
+    newsletter: false,
+    email: [],
+  },
+});

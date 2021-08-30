@@ -50,8 +50,6 @@ export const addNewsletter = async (data) => {
         newsletter: 'failed',
       };
     }
-
-    return true;
   } catch (e) {
     throw e;
   }
