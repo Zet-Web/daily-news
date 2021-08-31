@@ -5,6 +5,7 @@ import {
   CLEAR_POST_BY_ID,
   GET_POST_BY_ID,
   GET_POSTS,
+  SEND_MESSAGE,
 } from '../types';
 
 /*POST*/
@@ -32,4 +33,11 @@ export const addNewsletter = (data) => ({
 export const clearNewsletter = () => ({
   type: CLEAR_NEWSLETTER,
   payload: {},
+});
+
+/*
+CONTACT FORM*/
+export const sendMessage = (data) => ({
+  type: SEND_MESSAGE,
+  payload: api.sendMessage(data),
 });
